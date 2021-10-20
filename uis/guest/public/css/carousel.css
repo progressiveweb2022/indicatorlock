@@ -1,0 +1,526 @@
+/* By softor.ge */
+/** Stage container **/
+
+.connected-carousels {
+    overflow: hidden;
+}
+
+.connected-carousels .stage {
+    width: 100%;
+    margin: 20px auto;
+    position: relative;
+}
+
+.connected-carousels .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.connected-carousels .photo-credits a {
+    color: #fff;
+}
+
+
+/** Navigation container **/
+
+.connected-carousels .navigation {
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    background: rgba(230, 230, 230, 0.5);
+}
+
+
+/** Shared carousel styles **/
+
+.connected-carousels .carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.connected-carousels .carousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.connected-carousels .carousel li {
+    float: left;
+    padding: 4px;
+}
+
+
+/** Stage carousel specific styles **/
+
+.connected-carousels .carousel-stage {
+    width: 470px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+
+/** Navigation carousel specific styles **/
+
+.connected-carousels .carousel-navigation {
+    height: 100%;
+    width: 400px;
+    min-width: 240px;
+    overflow: visible;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.connected-carousels .carousel-navigation li {
+    cursor: pointer;
+}
+
+.connected-carousels .carousel-navigation li img {
+    display: block;
+    border: 5px solid #fff;
+    width: 80px;
+    height: 80px;
+}
+
+.connected-carousels .carousel-navigation li.active img {
+    border-color: rgba(30, 120, 120, 1);
+}
+
+
+/** Stage carousel controls **/
+
+.connected-carousels .prev-stage,
+.connected-carousels .next-stage {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 305px;
+    height: 410px;
+    color: #fff;
+}
+
+.connected-carousels .prev-stage {
+    left: 0;
+}
+
+.connected-carousels .next-stage {
+    right: 0;
+}
+
+.connected-carousels .prev-stage.inactive,
+.connected-carousels .next-stage.inactive {
+    display: none;
+}
+
+.connected-carousels .prev-stage span,
+.connected-carousels .next-stage span {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: rgba(30, 120, 120, 1);
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #222;
+    font: 24px/27px Arial, sans-serif;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+    -moz-box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+    box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+}
+
+.connected-carousels .prev-stage span {
+    left: 20px;
+}
+
+.connected-carousels .next-stage span {
+    right: 20px;
+}
+
+.connected-carousels .prev-stage:hover span,
+.connected-carousels .next-stage:hover span {
+    display: block;
+}
+
+
+/** Navigation carousel controls **/
+
+.connected-carousels .prev-navigation,
+.connected-carousels .next-navigation {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(30, 120, 120, 1);
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #222;
+    font: 16px/29px Arial, sans-serif;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+    -moz-box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+    box-shadow: 0 0 2px rgba(30, 120, 120, 1);
+}
+
+.connected-carousels .prev-navigation {
+    left: -15px;
+    top: 22px;
+    text-indent: 6px;
+}
+
+.connected-carousels .next-navigation {
+    right: -26px;
+    top: 22px;
+    text-indent: 20px;
+}
+
+.connected-carousels .prev-navigation.inactive,
+.connected-carousels .next-navigation.inactive {
+    opacity: .5;
+    cursor: default;
+}
+
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    text-align: center;
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+.slick-slide a {
+    display: block;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-center img {
+    box-shadow: 0 2px 6px rgba(30, 120, 120, 0.9);
+    -webkit-box-shadow: 0 2px 6px rgba(30, 120, 120, 0.9);
+    -moz-box-shadow: 0 2px 6px rgba(30, 120, 120, 0.9);
+    -ms-box-shadow: 0 2px 6px rgba(30, 120, 120, 0.9);
+}
+
+.slick-slide img {
+    display: inline-block;
+    width: 460px;
+    height: 460px;
+}
+
+.slider-nav .slick-slide img {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: inline-block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+@charset 'UTF-8';
+
+/* Slider */
+
+.slick-loading .slick-list {
+    background: #fff url('../img/ajax-loader.gif') center center no-repeat;
+}
+
+
+/* Icons */
+
+@font-face {
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/slick.eot');
+    src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), url('../fonts/slick.woff') format('woff'), url('../fonts/slick.ttf') format('truetype'), url('../fonts/slick.svg#slick') format('svg');
+}
+
+
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+    opacity: 1;
+}
+
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-arrow {
+    width: 26px;
+    height: 26px;
+    padding: 2px;
+    z-index: 999;
+    background: rgba(30, 120, 120, 0.3);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -khtml-transition: all 0.2s ease-in-out;
+}
+
+.slick-arrow:hover {
+    background: rgba(30, 120, 120, 1);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -khtml-transition: all 0.2s ease-in-out;
+}
+
+.slick-prev {
+    left: -236px;
+}
+
+[dir='rtl'] .slick-prev {
+    right: -25px;
+    left: auto;
+}
+
+.slick-prev:before {
+    content: '←';
+}
+
+[dir='rtl'] .slick-prev:before {
+    content: '→';
+}
+
+.slick-next {
+    right: -236px;
+}
+
+[dir='rtl'] .slick-next {
+    right: auto;
+    left: -25px;
+}
+
+.slick-next:before {
+    content: '→';
+}
+
+[dir='rtl'] .slick-next:before {
+    content: '←';
+}
+
+
+/* Dots */
+
+.slick-slider {
+    margin-top: 18px
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -45px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+    outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}

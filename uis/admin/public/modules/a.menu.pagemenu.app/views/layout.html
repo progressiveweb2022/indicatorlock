@@ -1,0 +1,120 @@
+<div>
+    <form ng-submit="save()" name="modifyForm">
+        <h3> Application </h3>
+        <div class="row">
+            <div class="col-md-12">
+                <label for="number"> First Title </label>
+                <div class="form-group">
+                    <cd-ckeditor id="number" ng-model="app.title"></cd-ckeditor>
+                </div>
+                <div>
+                    <hr />
+                    <label for="number"> About Title </label>
+                    <div class="form-group">
+                        <cd-ckeditor ng-model="app.downtitle"></cd-ckeditor>
+                    </div>
+                </div>
+                <label> Image </label>
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="app.img" ng-disabled="true">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-model="app.img" cd-uploader="{ enabled: true, name: 'file', action: '/api/app/uploadImage', data: { resolutions: [{ width: 460, height: 460 }] } }">
+                            &nbsp;<span class="glyphicon glyphicon-paperclip"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend style="margin: 0"> Top Block </legend>
+                    <br />
+                    <table class="table" ng-repeat="answer in app.answers">
+                        <tr>
+                            <td>
+                                <label> Number: <span ng-bind="answer.number"></span> </label>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="removedesc(answer)" class="btn btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" ng-model="answer.number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Description </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <cd-ckeditor ng-model="answer.desc"></cd-ckeditor>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" ng-click="adddesc()"> Add Description </button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend style="margin: 0"> Bottom Block </legend>
+                    <br />
+                    <table class="table" ng-repeat="subtext in app.subtexts">
+                        <tr>
+                            <td>
+                                <label> Number: <span ng-bind="subtext.number"></span> </label>
+                            </td>
+                            <td>
+                                <button type="button" ng-click="removedescBot(subtext)" class="btn btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" ng-model="subtext.number">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Title </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" ng-model="subtext.title">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Description </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <cd-ckeditor ng-model="subtext.desc"></cd-ckeditor>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default" ng-click="adddescBot()"> Add Description </button>
+                    </div>
+            </div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-disabled="!modifyForm.$valid"> Save </button>
+        </div>
+    </form>
+</div>

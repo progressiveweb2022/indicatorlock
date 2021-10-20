@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a class="btn btn-success" ui-sref="^.list">
+            <span class="glyphicon glyphicon-arrow-left"></span><span> Back</span>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <br />
+        <fieldset>
+            <legend>Message</legend>
+            <div class="message-box">
+                <div class="date">
+                    <span>Date: </span>
+                    <em ng-bind="message.createdAt | date: 'dd/MM/yy HH:mm'"></em>
+                </div>
+                <div class="name">
+                    <span>Name :</span>
+                    <span ng-bind="model.name"></span>
+                </div>
+                <div class="name">
+                    <span>Email :</span>
+                    <span ng-bind="model.from.email"></span>
+                </div>
+                <div class="type">
+                    <span>Type :</span>
+                    <span ng-bind="model.type"></span>
+                </div>
+                <h4>Subject:</h4>
+                <div class="sub" ng-bind="message.subject"></div>
+                <h4>Description:</h4>
+                <div class="body" ng-bind-html="message.body"></div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <hr />
+        <fieldset>
+            <legend>Answer</legend>
+            <form name="replyForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="model.subject" placeholder="Subject" ng-maxlength="150" />
+                </div>
+                <div class="form-group">
+                    <cd-ckeditor ng-required="true" ng-model="model.body"></cd-ckeditor>
+                </div>
+            </form>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" ng-click="reply()" ng-disabled="replyForm.$invalid"><span class="glyphicon glyphicon-send"></span> Send</button>
+            </div>
+        </fieldset>
+    </div>
+</div>

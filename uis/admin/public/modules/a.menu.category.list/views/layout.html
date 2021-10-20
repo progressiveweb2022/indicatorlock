@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <a ui-sref="^.modify"><span class="glyphicon glyphicon-plus"></span> Add Category </a>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th> Name </th>
+                <th> <span style="color: #aaa">Parent </span></th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="category in categories">
+                <td ng-bind="category.name"></td>
+                <td ng-bind="category.parent.name"></td>
+                <td>
+                    <a class="edit" ui-sref="^.modify({ category_id: category._id })"><span class="glyphicon glyphicon-edit"></span> Edit </a>
+                    &nbsp;
+                    <a class="remove" href ng-click="removeRecord(category._id)"><span class="glyphicon glyphicon-remove"></span> Delete </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

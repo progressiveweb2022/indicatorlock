@@ -1,0 +1,66 @@
+<div>
+    <form ng-submit="save()" name="modifyForm">
+        <h3> About Us </h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="title"> Header Title </label>
+                    <cd-ckeditor ng-model="about.title"></cd-ckeditor>
+                </div>
+            </div>
+        </div>
+        <h3> Paragraphs </h3>
+        <div class="form-group">
+            <table class="table" ng-repeat="paragraph in about.paragraphs">
+                <tr>
+                    <td>
+                        <label> Title </label>
+                        <div ng-if="about.paragraphs.length - 1 === $index">
+                            <div style="display: inline">
+                                <span class="padding-left-10px"></span>
+                                <input id="em-nt" ng-change="onChecked()" ng-model="setting.emailBulk" class="custom-checkbox" type="checkbox" /><span class="padding-left-5px"></span>
+                                <label for="em-nt">Email notification
+                                    <span ng-class="emailResult === 'enabled' ? 'f-green' : 'f-red'">({{emailResult}})</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="removeparagraph(paragraph)" class="btn btn-xs btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" ng-model="paragraph.title">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> Description </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <cd-ckeditor ng-model="paragraph.description"></cd-ckeditor>
+                    </td>
+                </tr>
+            </table>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" ng-click="addparagraph()"> Add Paragraphs </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="epilogue"> Epilogue Text </label>
+                    <cd-ckeditor ng-model="about.epilogue"></cd-ckeditor>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-disabled="!modifyForm.$valid"> Save </button>
+        </div>
+    </form>
+</div>

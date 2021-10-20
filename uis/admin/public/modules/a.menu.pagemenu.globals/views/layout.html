@@ -1,0 +1,165 @@
+<div>
+    <form ng-submit="save()" name="modifyForm">
+        <h3> Globals </h3>
+        <fieldset>
+            <legend> Main Page </legend>
+            <div class="form-group">
+                <label for="htitle"> Header title </label>
+                <input type="text" class="form-control" id="htitle" ng-model="globalPG.mainTitle" />
+            </div>
+            <div class="form-group">
+                <label for="logo"> Logo (178x82) </label>
+                <br />
+                <img style="margin: 12px 0;" ng-if="globalPG.logo" alt src="{{ globalPG.logo }}/178x82" />
+                <div class="input-group">
+                    <input type="text" id="logo" class="form-control" ng-model="globalPG.logo" ng-disabled="true">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-model="globalPG.logo" cd-uploader="{ enabled: true, name: 'file', action: '/api/global/uploadImage', data: { resolutions: [{ width: 178, height: 82 }] } }">
+                            &nbsp;<span class="glyphicon glyphicon-paperclip"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label> Body description </label>
+                <cd-ckeditor ng-model="globalPG.mainBodyDesc"></cd-ckeditor>
+            </div>
+            <div class="form-group">
+                <label> Footer description </label>
+                <cd-ckeditor ng-model="globalPG.mainFooterDesc"></cd-ckeditor>
+            </div>
+            <div class="form-group">
+                <label> Online Store Description </label>
+                <cd-ckeditor ng-model="globalPG.onlineStoreDesc"></cd-ckeditor>
+            </div>
+            <legend> Contact Us </legend>
+            <div class="form-group">
+                <label for="cname"> Company name </label>
+                <input type="text" class="form-control" id="cname" ng-model="globalPG.contact.company" />
+            </div>
+            <div class="form-group">
+                <label for="address"> Address </label>
+                <input type="text" class="form-control" id="address" ng-model="globalPG.contact.address" />
+            </div>
+            <div class="form-group">
+                <label for="phone"> Phone </label>
+                <input type="text" class="form-control" id="phone" ng-model="globalPG.contact.phone" />
+            </div>
+            <div class="form-group">
+                <label for="mobile"> Mobile </label>
+                <input type="text" class="form-control" id="mobile" ng-model="globalPG.contact.mobile" />
+            </div>
+            <div class="form-group">
+                <label for="fax"> Fax </label>
+                <input type="text" class="form-control" id="fax" ng-model="globalPG.contact.fax" />
+            </div>
+            <div class="form-group">
+                <label for="mail"> Email </label>
+                <input type="text" class="form-control" id="mail" ng-model="globalPG.contact.email" />
+            </div>
+            <h5> Social links </h5>
+            <div class="form-group">
+                <label for="fb"> Facebook </label>
+                <input type="text" placeholder="url" class="form-control" id="fb" ng-model="globalPG.contact.social.facebook" />
+            </div>
+            <div class="form-group">
+                <label for="in"> LinkedIn </label>
+                <input type="text" placeholder="url" class="form-control" id="in" ng-model="globalPG.contact.social.linkedin" />
+            </div>
+            <div class="form-group">
+                <label for="tw"> Twitter </label>
+                <input type="text" placeholder="url" class="form-control" id="tw" ng-model="globalPG.contact.social.twitter" />
+            </div>
+            <h5> Location </h5>
+            <div class="form-group">
+                <label for="lat"> Lat </label>
+                <input type="text" placeholder="Number" class="form-control" id="lat" ng-model="globalPG.contact.location.lat" />
+            </div>
+            <div class="form-group">
+                <label for="lng"> Lng </label>
+                <input type="text" placeholder="Number" class="form-control" id="lng" ng-model="globalPG.contact.location.lng" />
+            </div>
+        </fieldset>
+        <div ng-repeat="newCompany in globalPG.contactsNewCompany" class="row">
+            <div class="col-md-12">
+                <h5>Additional Information {{$index + 1}}</h5>
+                <div class="form-group">
+                    <label for="address_{{$index}}"> Address </label>
+                    <input type="text" class="form-control" id="address_{{$index}}" ng-model="newCompany.address" />
+                </div>
+                <div class="form-group">
+                    <label for="phone_{{$index}}"> Phone </label>
+                    <input type="text" class="form-control" id="phone_{{$index}}" ng-model="newCompany.phone" />
+                </div>
+                <div class="form-group">
+                    <label for="mobile_{{$index}}"> Mobile </label>
+                    <input type="text" class="form-control" id="mobile_{{$index}}" ng-model="newCompany.mobile" />
+                </div>
+                <div class="form-group">
+                    <label for="fax_{{$index}}"> Fax </label>
+                    <input type="text" class="form-control" id="fax_{{$index}}" ng-model="newCompany.fax" />
+                </div>
+                <div class="form-group">
+                    <label for="mail_{{$index}}"> Email </label>
+                    <input type="text" class="form-control" id="mail_{{$index}}" ng-model="newCompany.email" />
+                </div>
+                <h6> Location </h6>
+                <div class="form-group">
+                    <label for="lat_{{$index}}"> Lat </label>
+                    <input type="text" placeholder="Number" class="form-control" id="lat_{{$index}}" ng-model="newCompany.location.lat" />
+                </div>
+                <div class="form-group">
+                    <label for="lng_{{$index}}"> Lng </label>
+                    <input type="text" placeholder="Number" class="form-control" id="lng_{{$index}}" ng-model="newCompany.location.lng" />
+                </div>
+                <div cd-bg-color style="padding: 12px; margin: 12px 0;" ng-repeat="url in newCompany.urls">
+                    <hr />
+                    <h4> Url {{$index + 1}} </h4>
+                    <div class="form-group">
+                        <label for="name_{{$index}}"> Name </label>
+                        <input type="text" class="form-control" id="name_{{$index}}" ng-model="url.name" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="url_{{$index}}"> Url (For example: http://mysite.com or https://mysite.com) </label>
+                        <input type="text" class="form-control" id="url_{{$index}}" ng-model="url.link" ng-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <button type="button" ng-click="removeurl(img, newCompany)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-default" ng-click="addurl(newCompany)"> Add url </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-default" ng-click="move(img, -1)">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-default" ng-click="move(img, 1)">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                        </button>
+                        <button type="button" ng-click="removecompany(img)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" ng-click="addcompany()"> Add new address </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-disabled="!modifyForm.$valid"> Save </button>
+        </div>
+    </form>
+</div>

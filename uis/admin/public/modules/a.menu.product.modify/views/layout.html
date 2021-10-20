@@ -1,0 +1,128 @@
+<form name="modifyForm" ng-submit="save()">
+    <div class="form-group">
+        <label> Name * </label>
+        <input type="text" ng-model="product.name" class="form-control" ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label> Description </label>
+        <cd-ckeditor ng-model="product.description"></cd-ckeditor>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3">
+                <label> Old Price </label>
+                <input readonly="true" cd-numbers-only type="text" maxlength="10" ng-model="summOld" class="form-control" ng-required="true" />
+            </div>
+            <div class="col-md-3">
+                <label> New Price * </label>
+                <input ng-change="changeSmm()" cd-numbers-only type="text" maxlength="10" ng-model="product.price" class="form-control" ng-required="true" />
+            </div>
+            <div class="col-md-3">
+                <label> Discount price </label>
+                <input ng-change="changeSmm()" cd-numbers-only type="text" maxlength="10" ng-model="product.discount" class="form-control" />
+                <br />
+            </div>
+            <div class="col-md-3">
+                <label> Price Symbol * (max 3) </label>
+                <input type="text" maxlength="3" ng-model="product.symbol" class="form-control" ng-required="true" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Brand * </label>
+        <!-- <select ng-if="brands.length > 1" ng-model="product.brand" ng-options="brand._id as brand.name for brand in brands" class="form-control">
+            <option></option>
+        </select>
+        <select ng-if="brands.length == 1" disabled="true" ng-model="product.brand" class="form-control">
+            <option ng-bind="brands[0].name"></option>
+        </select> -->
+        <input type="text" readonly="true" value="{{product.brand.name}}" class="form-control" />
+        <br />
+        <div>
+            <a class="gray" ui-sref="^.^.brand.list"><span class="glyphicon glyphicon-eye-open"></span> Brand </a>
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label> Category * </label>
+        <div class="input-group">
+            <select ng-model="product.category" ng-options="category._id as category.name for category in categories" ng-required="true" class="form-control">
+                <option></option>
+            </select>
+            <span class="input-group-btn">
+                <a class="btn btn-default" ng-click="refresh()"><span class="glyphicon glyphicon-refresh"></span></a>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Sub Category </label>
+        <select ng-disabled="true" ng-model="product.subCategory" ng-options="subCategory._id as subCategory.name for subCategory in subCategories" class="form-control">
+            <option></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label> SKU * </label>
+        <input type="text" ng-model="product.pantNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Status * </label>
+        <select ng-model="product.status" ng-options="tg.value as tg.value for tg in enums.enumerate('status')" ng-required="true" class="form-control">
+        </select>
+    </div>
+    <!-- Hidden -->
+    <div ng-if="product.status === 'In stock'" class="form-group">
+        <label> UPC </label>
+        <input type="text" ng-model="product.upc" class="form-control" />
+    </div>
+    <div ng-if="product.status === 'Out of stock'">
+        <div class="form-group">
+            <label> The Expected Retail Availability </label>
+            <input type="text" ng-model="product.retail" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label> Finish </label>
+            <input type="text" ng-model="product.finish" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label> Grade </label>
+            <input type="text" ng-model="product.grade" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label> Left count </label>
+        <input type="number" ng-model="product.leftAmount" ng-required="true" class="form-control" />
+    </div>
+    <div class="form-group">
+        <div class="row form-group bg-gray padding-top-10px">
+            <div ng-form="colorForm" class="col-xs-10">
+                <div class="form-group">
+                    <label> Images (900x900) </label>
+                    <div class="overflow-hidden">
+                        <div ng-repeat="image in product.images" class="pull-left margin-right-10px margin-bottom-10px">
+                            <img width="100" height="100" ng-src="{{image}}-100x100"></img>
+                            <div class="padding-top-5px">
+                                <button type="button" class="btn btn-info btn-xs" ng-click="moveImage(image, product.images, -1)">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </button>
+                                <button type="button" class="btn btn-info btn-xs" ng-click="moveImage(image, product.images, 1)">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="removeImage(image, product.images)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pull-left">
+                            <div class="btn btn-xs btn-primary" cd-file-upload="{ action: '/api/product/uploadProductImage' }" ng-model="product.images" cd-push>
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success"> Save </button>
+    </div>
+</form>

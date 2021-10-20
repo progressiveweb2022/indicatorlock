@@ -1,0 +1,209 @@
+<div class="main-block">
+    <div class="header-block">
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-11 col-md-offset-1">
+                    <nav class="navbar noselect">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle transition" data-toggle="collapse" data-target="#mainNavbar">
+                                        <span class="glyphicon glyphicon-th-list"></span>
+                                    </button>
+                                    <a class="navbar-brand" ui-sref=".main">
+                                        <div class="logo"><img style="background-image: url('{{ globalPG.logo }}/178x82')" src="./img/pixel.png" alt /></div>
+                                    </a>
+                                    <div class="head-fb-box">
+                                        <div class="facebook-box hidden-cus-lg">
+                                            <cd-fb-button add="'?fb'" type="share"></cd-fb-button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="collapse navbar-collapse" id="mainNavbar">
+                                    <ul class="nav navbar-nav">
+                                        <li ui-sref-active="active">
+                                            <a class="transition" ui-sref=".main" ui-sref-opts="{ reload: true }">Home</a>
+                                        </li>
+                                        <li ui-sref-active="active">
+                                            <a class="transition" ui-sref=".product.out.filter.list" ui-sref-opts="{ reload: true }">Online Store</a>
+                                        </li>
+                                        <li ui-sref-active="active">
+                                            <a class="transition" ui-sref=".app" ui-sref-opts="{ reload: true }">Application</a>
+                                        </li>
+                                        <li ui-sref-active="active">
+                                            <a class="transition" ui-sref=".faq" ui-sref-opts="{ reload: true }">FAQ</a>
+                                        </li>
+                                        <li ui-sref-active="active">
+                                            <a class="transition" ui-sref=".contact" ui-sref-opts="{ reload: true }">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3 col-md-offset-1">
+                    <h4 ng-bind="globalPG.mainTitle" class="manufacturer-text OpenSansBold"></h4>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="search-box noselect">
+                                <div class="input-box transition">
+                                    <input cd-search-size class="transition" placeholder="Search" maxlength="5000" ng-model="model.search" type="text" />
+                                    <a ng-if="model.search != ''" ui-sref-opts="{ reload: model.search }" ui-sref=".search.list({ findText: model.search })">
+                                        <img class="search-img transition" alt=">>" src="./img/pixel.png" />
+                                    </a>
+                                    <a ng-if="model.search == ''" href>
+                                        <img class="search-img transition" alt=">>" src="./img/pixel.png" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 visible-cus-lg">
+                            <div class="facebook-box">
+                                <span>Share with your friends</span>
+                                <div class="fb-button-block">
+                                    <cd-fb-button add="'?fb'" type="share"></cd-fb-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="!isPreMenu" class="cmenu-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav role="navigation" class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle transition">
+                                <span class="glyphicon glyphicon-th-list two-sl"></span>
+                            </button>
+                        </div>
+                        <div id="navbarCollapse" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li ui-sref-active="active">
+                                    <a class="link-text-up transition" ui-sref-opts="{ reload: true }" ui-sref=".product.out.filter.list">Go To Shop</a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a class="link-text-up transition" ui-sref-opts="{ reload: true }" ui-sref=".video.list">Installation Video</a></li>
+                                <li ui-sref-active="active">
+                                    <a class="link-text-up transition" ui-sref-opts="{ reload: true }" ui-sref=".sheet.list">Cut Sheet</a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a class="link-text-up transition" ui-sref-opts="{ reload: true }" ui-sref=".aboutus.view">About Us</a>
+                                </li>
+                                <li ui-sref-active="active">
+                                    <a class="cart link-text-up transition" ui-sref-opts="{ reload: true }" ui-sref=".cart.checkout"><span><span>
+                                    <span class="label label-danger" ng-bind="cartSummary.itemCount" ng-if="cartSummary.itemCount"></span>
+                                    <span class="text-tr-normal" ng-bind="user.firstname ? '(' + user.firstname + ')' : '(Guest)'"></span>
+                                    <span class="sp2"></span>
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view></div>
+    <div class="footer-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <h4>Contact Us</h4>
+                    <div class="contact-title">
+                        <div ng-if="globalPG.contact.company">
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.company"></span>
+                        </div>
+                        <div ng-if="globalPG.contact.address">
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.address"></span>
+                        </div>
+                        <div ng-if="globalPG.contact.phone">
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.phone"></span>
+                        </div>
+                        <div ng-if="globalPG.contact.mobile">
+                            <span class="glyphicon glyphicon-phone"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.mobile"></span>
+                        </div>
+                        <div ng-if="globalPG.contact.fax">
+                            <span class="glyphicon glyphicon-paperclip"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.fax"></span>
+                        </div>
+                        <a ng-if="globalPG.contact.email" href="mailto:{{globalPG.contact.email}}">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <span class="sp2"></span>
+                            <span ng-bind="globalPG.contact.email"></span>
+                        </a>
+                    </div>
+                    <div class="soc-links">
+                        <ul>
+                            <li ng-if="globalPG.contact.social.facebook" class="facebook transition">
+                                <a href="{{ globalPG.contact.social.facebook }}" target="_blank">
+                                    <img src="./img/pixel.png" alt="Facebook" />
+                                </a>
+                            </li>
+                            <li ng-if="globalPG.contact.social.linkedin" class="linkedin transition">
+                                <a href="{{ globalPG.contact.social.linkedin }}" target="_blank">
+                                    <img src="./img/pixel.png" alt="LinkedIn" />
+                                </a>
+                            </li>
+                            <li ng-if="globalPG.contact.social.twitter" class="twitter transition">
+                                <a href="{{ globalPG.contact.social.twitter }}" target="_blank">
+                                    <img src="./img/pixel.png" alt="Twitter" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="OpenSansRegular" ng-bind-html="globalPG.mainFooterDesc | trustAsHtml"></div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="menu">
+                                    <ul class="menu-down">
+                                        <li ng-repeat="menu in menuDown" class="active">
+                                            <a class="transition" ui-sref="{{menu.state}}" ng-bind="menu.caption"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- subscribe -->
+<cd-subscribe show="subscribe.show"></cd-subscribe>
+<!-- scroll button -->
+<div class="scrollup" cd-scroll-up><span class="glyphicon glyphicon-triangle-top icon"></span><span class="text">Go up</span></div>
+<!-- loading indicator -->
+<cd-loading-indicator status="isLoading" img="./img/loading-indicator.gif"></cd-loading-indicator>

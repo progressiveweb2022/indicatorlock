@@ -1,0 +1,22 @@
+<div class="connected-carousels">
+    <div class="stage">
+        <div class="carousel carousel-stage">
+            <div class="slider-for">
+                <div ng-if="product.colors[0].images[0]" ng-repeat="product in options">
+                <a ui-sref="^.product.out.view({ product_id: product._id })">
+                    <img alt  ng-src="{{product.colors[0].images[0]}}-540x540"></img>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="carousel carousel-navigation">
+            <div class="slider-nav">
+                <div ng-if="product.colors[0].images[0]" ng-repeat="product in options">
+                    <img alt ng-src="{{product.colors[0].images[0]}}-100x100"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

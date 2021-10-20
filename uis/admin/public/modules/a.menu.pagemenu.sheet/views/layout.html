@@ -1,0 +1,55 @@
+<div>
+    <form ng-submit="save()" name="modifyForm">
+        <h3> Cut Sheet </h3>
+        <div ng-repeat="img in page.colls" class="row">
+            <div class="col-md-12">
+                <label for="title"> Title </label>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="title" ng-model="img.title">
+                </div>
+                <label> Description </label>
+                <div class="form-group">
+                    <cd-ckeditor ng-model="img.desc"></cd-ckeditor>
+                </div>
+                <div class="form-group">
+                    <label> Image (990x1400/Max)(.png) </label>
+                    <br />
+                    <img ng-if="img.url" style="width: 120px; margin: 12px 0;" atl src="{{img.url}}/320x320" />
+                    <br />
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="img.url" ng-disabled="true">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-model="img.url" cd-uploader="{ enabled: true, name: 'file', action: '/api/sheet/uploadImage', data: { resolutions: [{ width: 320, height: 320 }, { width: 990, height: 990 }] } }">
+                                &nbsp;<span class="glyphicon glyphicon-paperclip"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-default" ng-click="move(img, -1)">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-default" ng-click="move(img, 1)">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                        </button>
+                        <button type="button" ng-click="removesheet(img)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12" style="border-bottom: 1px solid gray; margin: 16px 0;"></div>
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="button" class="btn btn-default" ng-click="addsheet()"> Add Sheet </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-disabled="!modifyForm.$valid"> Save </button>
+        </div>
+    </form>
+</div>

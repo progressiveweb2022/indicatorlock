@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Indicatorlock </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Indicatorlock" />
+    <meta name="copyright" content="Indicator Lock Company 2015" />
+    <meta name="robots" content="all" />
+    <meta name="title" content=" Indicatorlock " />
+    <meta name="keywords" content="<%= metaKey %>" />
+    <meta name="description" content="<%= metaDesc %>" />
+    <meta property="fb:app_id" content="<%= fbAppId %>" />
+    <meta property="og:site_name" content="Indicatorlock" />
+    <meta property="og:title" content="<%= fbPreviewName %>" />
+    <meta property="og:image" content="<%= fbPreviewImage %>" />
+    <meta property="og:url " content="<%= fbPreviewUrl %>" />
+    <meta property="og:description" content="<%= fbPreviewDesc %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="fragment" content="!" />
+    <base href="/guest/" />
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico?v1">
+    <!-- build:css ./css/all.min.css -->
+    <link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-override.css" />
+    <link rel="stylesheet" type="text/css" href="./css/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/responsive.css" />
+    <!-- endbuild -->
+</head>
+
+<body>
+    <!-- temp -->
+    <div class="text-center text-danger">
+        <!-- <div> -- Under construction -- </div> -->
+    </div>
+    <!-- google analytics -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-64761190-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- fb root -->
+    <div id="fb-root"></div>
+    <!-- notifications -->
+    <cd-notification timeout="6"></cd-notification>
+    <!-- view -->
+    <div ui-view></div>
+    <!-- build:js ./js/components.min.js -->
+    <script src="./shared_components/js/utils.js"></script>
+    <script src="./shared_components/js/enums.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/cookie/jquery.cookie.js"></script>
+    <script src="./bower_components/slider/jquery.flexslider.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/carousel/slick.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbuild -->
+    <!-- build:js ./js/external-modules.min.js -->
+    <script src="./bower_components/slider/angular-flexslider.js"></script>
+    <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script src="./bower_components/infinite-scroll/ng-infinite-scroll.js"></script>
+    <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="./bower_components/angulartics/src/angulartics.js"></script>
+    <script src="./bower_components/angulartics/src/angulartics-ga.js"></script>
+    <script src="./bower_components/angular-local-storage-master/dist/angular-local-storage.js"></script>
+    <!-- endbuild -->
+    <!-- build:js ./js/custom-modules.min.js -->
+    <script src="./modules.js"></script>
+    <!-- endbuild -->
+</body>
+
+</html>

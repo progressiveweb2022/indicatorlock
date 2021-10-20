@@ -1,0 +1,20 @@
+<div class="container login">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 form-panel">
+            <form ng-submit="login()" name="loginForm">
+                <div class="form-group">
+                    <label class="white" for="email"> Email: </label>
+                    <input type="email" id="email" class="form-control" ng-model="model.email" ng-required="true" autofocus />
+                </div>
+                <div class="form-group">
+                    <label class="white" for="password"> Password: </label>
+                    <input type="password" id="password" class="form-control" ng-model="model.password" ng-required="true">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-block" ng-disabled="loginForm.$invalid"> Enter </button>
+                </div>
+            </form>
+            <a target="_blank" href="http://softor.ge" class="white">CMS &copy 2015</a>
+        </div>
+    </div>
+</div>

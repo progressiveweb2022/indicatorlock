@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 ng-bind="sheet.title"></h3>
+    </div>
+</div>
+<div class="sheet-box">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="back-button">
+                <a class="sp-link font14" ui-sref="^.list"><span class="glyphicon glyphicon-arrow-left"></span><span class="sp2"></span><span class="back">Back</span></a>
+            </div>
+            <div class="overflow-hidden">
+                <div class="sheet-desc">
+                    <div ng-bind-html="sheet.desc | trustAsHtml"></div>
+                </div>
+            </div>
+            <div class="overflow-hidden">
+                <div class="sheet-view transition-02s">
+                    <a class="transition-02s" target="_blank" href="{{sheet.url}}/original.{{imgType}}" download="Original.{{imgType}}">
+                        <img ng-src="./img/download.png" alt="Download" />
+                    </a>
+                        <img ng-src="{{sheet.url}}/990x990" alt />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+  "name": "indicatorlock",
+  "description": "ABOUT US INDICATOR LOCK is the owner, manufacturer and distributor of a new type of privacy LOCK with an occupancy Indicator. ",
+  "version": "0.0.1",
+  "author": "Softor Team & Karaxuna",
+  "dependencies": {
+    "body-parser": "1.9.0",
+    "cookie": "0.1.2",
+    "cookie-parser": "1.3.3",
+    "crypto": "0.0.3",
+    "express": "4.9.7",
+    "gm": "1.17.0",
+    "gridfs-stream": "1.1.1",
+    "mkdirp": "0.5.0",
+    "mongoose": "4.0.1",
+    "multer": "0.1.6",
+    "ncp": "1.0.1",
+    "nodemailer": "1.3.0",
+    "optimist": "0.6.1",
+    "passport": "0.2.1",
+    "passport-facebook": "1.0.3",
+    "passport-google-oauth": "0.1.5",
+    "passport-local": "1.0.0",
+    "socket.io": "1.3.5",
+    "paypal-rest-sdk": "0.*"
+  },
+  "devDependencies": {
+    "gulp": "3.8.11",
+    "gulp-shell": "0.4.0",
+    "gulp-nodemon": "2.0.2",
+    "gulp-watch": "4.2.4",
+    "gulp-if": "1.2.5",
+    "gulp-uglify": "1.2.0",
+    "gulp-minify-css": "1.0.0",
+    "gulp-useref": "1.1.2"
+  }
+}

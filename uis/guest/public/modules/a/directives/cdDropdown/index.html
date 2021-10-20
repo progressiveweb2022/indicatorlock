@@ -1,0 +1,14 @@
+<div class="cd-dropdown dropdown">
+	<button type="button" dropdown-toggle ng-disabled="disabled">
+    	<span class="selected" ng-bind="getSelectedCaption()"></span>
+    	<span class="arrow-down"></span>
+    </button>
+    <ul class="dropdown-menu scroll" role="menu">
+    	<li ng-if="!required">
+    		<a href dropdown-toggle ng-click="select()" ng-bind="noValueCaption"></a>
+    	</li>
+        <li ng-repeat="option in options">
+        	<a href dropdown-toggle ng-click="select(option)" ng-bind="getOptionCaption(option)"></a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,60 @@
+<div>
+    <form ng-submit="save()" name="modifyForm">
+        <h3> Videos </h3>
+        <div class="form-group">
+            <table class="table" ng-repeat="video in page.videos">
+                <tr>
+                    <th>Title</th>
+                    <th>Youtube ID</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" ng-model="video.title" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="video.youtubeid" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <th>
+                        +/-
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <cd-ckeditor ng-model="video.desc"></cd-ckeditor>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-xs btn-default" ng-click="move(video, -1)">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </button>
+                            <button type="button" class="btn btn-xs btn-default" ng-click="move(video, 1)">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </button>
+                            <button type="button" ng-click="removevideo(video)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                        <br />
+                        <div style="width: 120px; margin-top: 12px;">
+                            <img style="width: 100%" alt ng-src="http://img.youtube.com/vi/{{video.youtubeid}}/0.jpg" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th>
+                        <button type="button" class="btn btn-xs btn-primary" ng-click="addvideo()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" ng-disabled="!modifyForm.$valid"> Save </button>
+        </div>
+    </form>
+</div>

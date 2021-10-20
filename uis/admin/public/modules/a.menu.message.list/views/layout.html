@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a class="btn btn-success" ui-sref="^.^.pagemenu.mess">
+            <span class="glyphicon glyphicon-arrow-left"></span><span> Back</span>
+        </a>
+    </div>
+    <div class="col-xs-12">
+        <br />
+        <div style="width: 100%; overflow-y: hidden;">
+            <table style="min-width: 540px; width: 100%">
+                <tr class="orange-light">
+                    <th>
+                        <div>
+                            <a class="white" ui-sref=".({ sortby: 'createdAt', sortasc: !sortasc })">
+                                <span class="padding-left-10px">Date/Time</span>
+                                <span class="glyphicon glyphicon-sort sort"></span>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <a class="white" ui-sref=".({ sortby: 'name', sortasc: !sortasc })">
+                                <span>Name</span>
+                                <span class="glyphicon glyphicon-sort sort"></span>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <a class="white" ui-sref=".({ sortby: 'from.email', sortasc: !sortasc })">
+                                <span>Email</span>
+                                <span class="glyphicon glyphicon-sort sort"></span>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <a class="white" ui-sref=".({ sortby: 'subject', sortasc: !sortasc })">
+                                <span>Subject</span>
+                                <span class="glyphicon glyphicon-sort sort"></span>
+                            </a>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="all">
+                            <span class="white">Select</span>
+                        </div>
+                    </th>
+                </tr>
+                <tr ng-repeat="message in messages" ui-sref="^.compose({ message_id: message._id })" ng-class="message.read ? 'read' : 'unread'">
+                    <td><span class="pointer padding-left-10px" ng-bind="message.createdAt | date: 'dd/MM/yy HH:mm'"></span>
+                        <button class="custom-learn-button border-0 margin-left-10px">Learn more</button>
+                    </td>
+                    <td><span class="pointer" ng-bind="message.from.email"></span></td>
+                    <td><span class="pointer" ng-bind="message.name"></span></td>
+                    <td><span class="pointer" ng-bind="message.subject"></span></td>
+                    <td cd-stop-propagation>
+                        <div class="all-box">
+                            <input class="custom-checkbox" type="checkbox" id="checkbox_{{$index}}" checklist-value="message" checklist-model="selectedmessages" />
+                            <button class="custom-button border-0 border-radius-2x" type="button" ng-click="remove(message)">
+                                <span style="color:red" class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ul ng-if="pages().length > 1" class="pagination">
+                            <li>
+                                <a class="glyphicon glyphicon-chevron-left" ui-sref=".({ pageoffset: pageoffset - pagelength })" cd-prevent-default="pageoffset === 0"></a>
+                            </li>
+                            <li ng-repeat="page in pages()" ng-class="{ active: pageoffset === (page - 1) * pagelength }">
+                                <a class="border-reset" ui-sref=".({ pageoffset: (page - 1) * pagelength })" ng-bind="page"></a>
+                            </li>
+                            <li>
+                                <a class="glyphicon glyphicon-chevron-right" ui-sref=".({ pageoffset: pageoffset + pagelength })" cd-prevent-default="pageoffset + pagelength >= totalproducts"></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

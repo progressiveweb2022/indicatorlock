@@ -1,0 +1,83 @@
+.navbar-default {
+    background-color: rgba(30, 120, 120, 1);
+    border-color: rgba(30, 120, 120, 1);
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ddd;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #eee;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #eee;
+    background-color: rgba(60, 180, 180, 0.9);
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    color: #eee;
+    background-color: rgba(60, 180, 180, 0.9);
+    border-color: rgba(60, 180, 180, 0.9);
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    background-color: rgba(30, 120, 120, 1);
+    border-color: rgba(30, 120, 120, 1);
+}
+
+.pagination > li > a,
+.pagination > li > span,
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: rgba(30, 120, 120, 1);
+}
+
+.btn-success {
+    background-color: rgba(30, 120, 120, 1);
+    border-color: rgba(30, 120, 120, 1);
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success.focus,
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: rgba(50, 140, 130, 1);
+    border-color: rgba(50, 130, 130, 1);
+}
+@media (min-width: 768px) {
+    .container {
+    width: 100;
+}
+}

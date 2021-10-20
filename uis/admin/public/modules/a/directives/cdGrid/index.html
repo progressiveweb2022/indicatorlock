@@ -1,0 +1,76 @@
+<div class="grid-control">
+	<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th ng-repeat="column in columns">
+                    <span ng-click="sortBy(column)" title="Sort by '{{column.caption}}'">
+                        {{column.caption}}
+                        <span class="glyphicon pull-right"
+                              ng-class="{ '1' : 'glyphicon-chevron-up', '-1': 'glyphicon-chevron-down', 'undefined': 'glyphicon-sort' }[params.sort[column.name]]"></span>
+                    </span>
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <th ng-repeat="column in columns">
+                    <!-- textbox query -->
+                    <input type="text" name="query"
+                           class="form-control input-sm"
+                           ng-if="column.type === 'textbox-like' || column.type === 'textbox-exact' || column.type === 'textbox-id' || column.type === 'html'"
+                           ng-model="params.query[column.name][column.type]"/>
+
+                    <!-- date query -->
+                    <input type="text" name="query"
+                           class="form-control input-sm"
+                           ng-if="column.type === 'textbox-date'"
+                           ng-model="params.query[column.name][column.type]"/>
+
+                    <!-- dropdown query -->
+                    <select class="form-control input-sm"
+                            ng-if="column.type === 'dropdown'"
+                            ng-options="op.value as op.caption for op in column.options"
+                            ng-model="params.query[column.name][column.type]"
+                            ng-change="startFilter()">
+                        <option></option>
+                    </select>
+                </th>
+                <th style="vertical-align: bottom;">
+                    <button class="btn btn-default btn-sm" ng-click="startFilter()" title="filter">
+                        <span class="glyphicon glyphicon-filter"></span>
+                    </button>
+                    <button class="btn btn-default btn-sm" ng-click="resetFilter()" title="clear filter">
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="record in result.records">
+                <td ng-repeat="column in columns">
+                    <span ng-bind-html="getCaption(column, record)" cd-mathjax></span>
+                </td>
+                <td ng-if="buttons.length">
+                    <div class="btn-group pull-right" style="display: flex;">
+                        <button type="button" ng-repeat="button in buttons" class="btn btn-xs" ng-class="button.classname"
+                        ng-click="button.action(record)">
+                            <span ng-if="button.icon" class="glyphicon" ng-class="button.icon"></span>
+                            <span ng-bind-html="button.caption"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+	</table>
+	<ul class="pagination">
+		<li ng-repeat="page in pages()" ng-class="{ active: params.offset === (page - 1) * params.length }" ng-if="pages().length > 1">
+			<a href="" ng-bind="page" ng-click="toPage(page)"></a>
+		</li>
+		&nbsp;
+		<li>
+			<select class="form-control input-sm" ng-model="params.length" ng-options="o as o for o in [20, 50, 100]"
+			 style="width: 70px; display: inline-block; height: 34px;">
+			</select>
+			Per page
+		</li>
+	</ul>
+</div>

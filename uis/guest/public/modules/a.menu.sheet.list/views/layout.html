@@ -1,0 +1,33 @@
+<h3> Cut Sheet </h3>
+<div class="sheet-box">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="hr-bottom hor-margin-12 mg-top-0 hor-padding-12 pd-top-0 overflow-hidden">
+                <button class="switch-button" ng-class="isGrid ? 'grid' : 'list'" ng-click="switch()">
+                    <div class="title" ng-bind="isGrid ? 'grid' : 'list'"></div>
+                    <span class="glyphicon glyphicon-th"></span>
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div ng-if="!isGrid" class="row" ng-repeat="img in sheet.colls">
+        <div class="col-xs-12">
+            <a ui-sref="^.view({ sheet_id: img._id })">
+                <h3 class="title" ng-bind="img.title"></h3>
+                <img class="sheet-img" ng-if="img.url" alt ng-src="{{img.url}}/990x990" />
+                <div ng-if="$index !== sheet.colls.length - 1" class="line"></div>
+            </a>
+        </div>
+    </div>
+    <div ng-if="isGrid" class="row">
+        <div class="col-md-3 col-sm-4 col-xs-4 sheet-col" ng-repeat="img in sheet.colls">
+            <a class="sheet-link" ui-sref="^.view({ sheet_id: img._id })">
+                <div class="image">
+                    <img ng-if="img.url" alt ng-src="{{img.url}}/320x320" />
+                </div>
+                <div class="sheet-box-list-title sp-color-1" ng-bind="img.title"></div>
+            </a>
+        </div>
+    </div>
+</div>

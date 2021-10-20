@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-12">
+        <br />
+        <div class="pre-box">
+        <a class="pull-right" ui-sref="^.^.message.list"><span class="glyphicon glyphicon-list-alt"></span> Contact Us - Messages</a>
+        <span ng-if="sumMess" class="notification" ng-bind="sumMess.length"></span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h3 class="col-xs-12">Bulk Subscribe Emails </h3>
+    <div class="col-md-12">
+        <form name="replyForm">
+            <label for="name">Theme:</label>
+            <input ng-model="model.theme" class="form-control" value="" type="text" id="name" />
+            <br />
+            <label for="subject">Subject:</label>
+            <input class="form-control" ng-model="model.subject" type="text" id="subject" />
+            <br />
+            <label for="message">* Message:</label>
+            <cd-ckeditor ng-required="true" ng-model="model.body"></cd-ckeditor>
+            <br />
+            <button class="btn btn-primary " ng-click="reply()" ng-disabled="replyForm.$invalid"><span class="glyphicon glyphicon-send" ></span> Send </button>
+            <span class="padding-left-20px" style="color: green;" ng-bind="wait"></span>
+        </form>
+        <br />
+    </div>
+</div>

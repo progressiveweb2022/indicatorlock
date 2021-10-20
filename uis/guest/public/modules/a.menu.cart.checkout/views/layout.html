@@ -1,0 +1,39 @@
+<div>
+    <table class="table" ng-if="cartItems.length">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Total price</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in cartItems">
+            <td>
+                <img ng-src="{{item.product.images[0]}}-100x100"></img>
+            </td>
+            <td ng-bind="item.product.name"></td>
+            <td ng-bind="item.quantity"></td>
+            <td ng-bind="item.quantity * item.product.price + ' USD'"></td>
+            <td>
+                <button ng-click="removeItem(item)" class="btn btn-sm btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <h3 class="margin-bottom-30px">
+        <span ng-if="cartItems.length">Total: {{getTotalPrice()}} USD</span>
+        <span ng-if="!cartItems.length">Your shopping cart is empty</span>
+    </h3>
+    <div>
+        <form name="checkoutForm" ng-submit="checkout()">
+            <div class="form-group">
+                <label>
+                    Payment method <span class="text-danger">*</span>
+                </label>
+                <select ng-model="paymentMethod" ng-options="method for method in ['Credit Card', 'PayPal']" ng-required="true" class="form-control"></select>
+            </div>
+            <div>
+                <button ng-disabled="checkoutForm.$invalid || !cartItems.length" class="btn btn-success"> Buy </button>
+            </div>
+        </form>
+    </div>
+</div>

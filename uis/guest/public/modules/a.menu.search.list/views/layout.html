@@ -1,0 +1,64 @@
+<div class="product-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3> Online Store </h3>
+                <div class="product-box">
+                    <div class="row">
+                        <div ng-if="!products.length" class="col-md-12">
+                            <h4>No Results</h4>
+                        </div>
+                        <div ng-repeat="product in products" class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="mg-10-0 overflow-hidden"></div>
+                                    <hr />
+                                    <div class="mg-10-0 overflow-hidden"></div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="search-img-box">
+                                        <a class="sp-link font14" ui-sref="a.menu.product.out.view({ product_id: product._id })">
+                                            <img alt ng-if="product.colors[0].images[0]" ng-src="{{product.colors[0].images[0]}}-540x540"></img>
+                                            <img alt ng-if="!product.colors[0].images[0]" src="./img/npp.png"></img>
+                                        </a>
+                                        <div class="discount-sr" ng-if="product.discount">
+                                            <span>-{{product.discountPercent}}%</span>
+                                        </div>
+                                        <div class="price-sr">
+                                            <span ng-bind="'Price: '"></span>
+                                            <span class="sp-color-2" ng-bind="product.price"></span>
+                                            <span class="sp-color-2" ng-bind="product.symbol"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 col-md-8 col-lg-8">
+                                    <h4 class="search-box-title" ng-bind="product.name"></h4>
+                                    <div class="gray mg-10-0">
+                                        <span>SKU </span><span ng-bind="product.pantNumber"></span>
+                                    </div>
+                                    <div class="search-desc" ng-bind-html="product.description | trustAsHtml"></div>
+                                </div>
+                                <div class="learn-more-button">
+                                    <a class="sp-link font14" ui-sref="a.menu.product.out.view({ product_id: product._id })"><span class="learn">Learn more</span><span class="sp2"></span><span class="glyphicon glyphicon-share-alt"></span></a>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="mg-10-0 overflow-hidden"></div>
+                                    <hr />
+                                    <div class="mg-10-0 overflow-hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="overflow-hidden">
+                                <pagination total-items="total" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="moveToPage()" previous-text="<<" next-text=">>" class="pull-right"></pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>

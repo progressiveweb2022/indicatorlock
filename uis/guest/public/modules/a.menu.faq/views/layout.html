@@ -1,0 +1,42 @@
+<div class="faq-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3> FAQ </h3>
+                <div class="faq-box">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="query-links-box">
+                                <ul class="query-links">
+                                    <li ng-repeat="faq in faqs">
+                                        <a class="sp-link" href cd-scroll-to="#faq-{{faq._id}}">
+                                            <span ng-bind="faq.question.en"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="faq-box-list" ng-repeat="faq in faqs" id="faq-{{faq._id}}" style="overflow: hidden;">
+                                    <div class="col-md-4">
+                                        <div class="query-box">
+                                            <div class="font18 mg-up0 sp-color-2">
+                                            <span ng-bind="($index + 1) + '.'"></span>
+                                                <span ng-bind="faq.question.en"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="answer-box border-radius-4x" ng-bind-html="faq.answer.en"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>

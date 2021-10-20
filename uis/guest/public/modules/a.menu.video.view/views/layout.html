@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 ng-bind="video.title"></h3>
+    </div>
+</div>
+<div class="video-box">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="back-button">
+                        <a class="sp-link font14" ui-sref="^.list"><span class="glyphicon glyphicon-arrow-left"></span><span class="sp2"></span><span class="back">Back</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="video-view">
+                        <cd-youtube code="video.youtubeid"></cd-youtube>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <div class="video-desc">
+                        <div ng-bind-html="video.desc | trustAsHtml"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

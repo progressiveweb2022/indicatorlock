@@ -1,0 +1,9 @@
+uis/*/build/**
+uis/*/public/shared_components/**
+uis/*/public/bower_components/**
+uis/*/public/modules.js
+uis/*/public/api.json
+configTemp.json
+temp/**
+node_modules/**
+npm-debug.log

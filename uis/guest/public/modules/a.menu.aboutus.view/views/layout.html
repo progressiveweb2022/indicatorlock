@@ -1,0 +1,18 @@
+<div class="header row">
+    <div class="col-md-12">
+        <div ng-bind-html="about.title | trustAsHtml"></div>
+        <hr ng-if="about.paragraphs.length || (about.title && about.epilogue)" />
+    </div>
+</div>
+<div class="content row">
+    <div class="col-md-12" ng-repeat="paragraph in about.paragraphs">
+        <h4 class="title" ng-bind="paragraph.title"></h4>
+        <div ng-bind-html="paragraph.description | trustAsHtml"></div>
+        <hr />
+    </div>
+</div>
+<div class="epilogue row">
+    <div class="col-md-12">
+        <div ng-bind-html="about.epilogue | trustAsHtml"></div>
+    </div>
+</div>

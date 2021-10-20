@@ -1,0 +1,15 @@
+<h3> Video List </h3>
+<div class="video-box">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-4 video-col" ng-repeat="video in page.videos">
+                    <a class="video-link" ui-sref="^.view({ video_id: video._id })">
+                        <img alt ng-src="http://img.youtube.com/vi/{{video.youtubeid}}/0.jpg" />
+                        <div class="video-box-list-title sp-color-1" ng-bind="video.title"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

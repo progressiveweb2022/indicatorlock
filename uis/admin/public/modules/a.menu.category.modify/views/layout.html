@@ -1,0 +1,19 @@
+<form name="modifyForm" ng-submit="save()">
+    <div class="form-group">
+        <label> Name * </label>
+        <input type="text" ng-model="category.name" class="form-control" ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label> Description </label>
+        <cd-ckeditor ng-model="category.description"></cd-ckeditor>
+    </div>
+    <div class="form-group">
+        <label> Parent Category </label>
+        <select ng-disabled="true" class="form-control" ng-model="category.parent" ng-options="parentCategory._id as parentCategory.name for parentCategory in parentCategories">
+            <option></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success"> Save </button>
+    </div>
+</form>

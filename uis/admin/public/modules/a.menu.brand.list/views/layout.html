@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <a ui-sref="^.modify"><span class="glyphicon glyphicon-plus"></span> Add Brand </a>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th> Name </th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="brand in brands">
+                <td ng-bind="brand.name"></td>
+                <td>
+                    <a class="edit" ui-sref="^.modify({ brand_id: brand._id })"><span class="glyphicon glyphicon-edit"></span> Edit </a>
+                    &nbsp;
+                    <a class="remove" href ng-click="removeRecord(brand._id)"><span class="glyphicon glyphicon-remove"></span> Delete </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

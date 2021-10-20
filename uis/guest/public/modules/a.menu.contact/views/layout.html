@@ -1,0 +1,139 @@
+<div class="contact-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3> Contact Us </h3>
+                <div class="contact-box">
+                    <div class="row">
+                        <h5 class="col-xs-12">Please, contact us with any questions or concerns.</h5>
+                        <div class="col-md-6">
+                            <form ng-submit="send()" name="composeForm">
+                                <label for="name">Name:</label>
+                                <input ng-model="model.name" class="form-control" ng-required="true" value="" type="text" placeholder="John Addison" id="name" />
+                                <br />
+                                <label for="email">Email:</label>
+                                <input ng-model="model.email" cd-keyboard="en" cd-email ng-required="true" class="form-control" value="" type="text" placeholder="john_addison@example.com" id="email" />
+                                <br />
+                                <label for="subject">Subject:</label>
+                                <input class="form-control" ng-model="model.subject" type="text" placeholder="My answers" id="subject" />
+                                <br />
+                                <h3 class="label-type"> Message Type </h3>
+                                <div class="row">
+                                    <div class="col-md-3" ng-repeat="type in enums.enumerate('messagetype')">
+                                        <input type="radio" ng-model="model.type" ng-value="type.value" id="type-{{$index}}" />
+                                        <label for="type-{{$index}}">
+                                            <span class="img"></span>
+                                            <span ng-bind="type.caption.en"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <br />
+                                <label for="message">Message:</label>
+                                <textarea ng-model="model.body" class="form-control" id="message" ng-required="true" placeholder="Thank you guys so much"></textarea>
+                                <br />
+                                <button class="btn btn-primary " ng-disabled="!composeForm.$valid "><span class="glyphicon glyphicon-send"></span> Send </button>
+                            </form>
+                            <br />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-title">
+                                <div ng-if="globalPG.contact.company">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.company"></span>
+                                </div>
+                                <div ng-if="globalPG.contact.address">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.address"></span>
+                                </div>
+                                <div ng-if="globalPG.contact.phone">
+                                    <span class="glyphicon glyphicon-phone-alt"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.phone"></span>
+                                </div>
+                                <div ng-if="globalPG.contact.mobile">
+                                    <span class="glyphicon glyphicon-phone"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.mobile"></span>
+                                </div>
+                                <div ng-if="globalPG.contact.fax">
+                                    <span class="glyphicon glyphicon-paperclip"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.fax"></span>
+                                </div>
+                                <a class="text-ok sp-link" ng-if="globalPG.contact.email" href="mailto:{{globalPG.contact.email}}">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    <span class="sp2"></span>
+                                    <span ng-bind="globalPG.contact.email"></span>
+                                </a>
+                            </div>
+                            <div class="contact-map">
+                                <cd-map-only markers="markers" class="markers"></cd-map-only>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Additional Information</h5>
+                            <div class="mg-10-0 overflow-hidden"></div>
+                            <hr />
+                            <div class="mg-10-0 overflow-hidden"></div>
+                            <div ng-repeat="addCompany in globalPG.contactsNewCompany" class="row">
+                                <div class="col-md-6">
+                                    <div class="adding-contact">
+                                        <div ng-if="addCompany.address">
+                                            <span class="glyphicon glyphicon-map-marker"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="addCompany.address"></span>
+                                        </div>
+                                        <div ng-if="addCompany.phone">
+                                            <span class="glyphicon glyphicon-phone-alt"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="addCompany.phone"></span>
+                                        </div>
+                                        <div ng-if="addCompany.mobile">
+                                            <span class="glyphicon glyphicon-phone"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="addCompany.mobile"></span>
+                                        </div>
+                                        <div ng-if="addCompany.fax">
+                                            <span class="glyphicon glyphicon-paperclip"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="addCompany.fax"></span>
+                                        </div>
+                                        <a class="text-ok display-block" ng-if="addCompany.email" href="mailto:{{globalPG.contact.email}}">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="addCompany.email"></span>
+                                        </a>
+                                        <a class="text-ok display-block" ng-if="addCompany.urls" ng-repeat="url in addCompany.urls" target="_blank" href="{{url.link}}">
+                                            <span class="glyphicon glyphicon-globe"></span>
+                                            <span class="sp2"></span>
+                                            <span ng-bind="url.name"></span>
+                                        </a>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-map-additional">
+                                        <cd-map-only markers="addCompany" class="markers"></cd-map-only>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div ng-if="$index !== globalPG.contactsNewCompany.length - 1">
+                                        <div class="mg-10-0 overflow-hidden"></div>
+                                        <hr />
+                                        <div class="mg-10-0 overflow-hidden"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>

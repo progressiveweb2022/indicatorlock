@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="filters col-md-12">
+        <div class="row">
+            <div class="col-md-5 mg-bottom-20">
+                <div style="height: 34px; z-index: 9999" class="input-group">
+                    <div class="input-group-btn border-left-radius-4 font14 bg-ind-gray-light sp12">Categoryes:</div>
+                    <div class="relative form-control">
+                        <div class="dropdown border-right-radius-4 cat-ins-up">
+                            <a href="#" style="display: block" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-chevron-down"></span></a>
+                            <ul class="dropdown-menu scrollbar scroll" role="menu">
+                                <li>
+                                    <a ui-sref=".list({ category_id: undefined, subCategory_id: undefined, page: undefined })" class="sp-link"> All </a>
+                                </li>
+                                <li ng-repeat="category in categories">
+                                    <a ui-sref=".list({ category_id: category._id, subCategory_id: undefined, page: undefined })" ng-bind="category.name" class="sp-link" ng-class="category_id === category._id ? 'orange' : null"></a>
+                                    <!-- <ul ng-if="category_id === category._id">
+                                        <li ng-repeat="subCategory in subCategories">
+                                            <a ui-sref=".list({ category_id: category._id, subCategory_id: subCategory._id, page: undefined })" ng-bind="subCategory.name" class="sp-link" ng-class="subCategory_id === subCategory._id ? 'orange' : null"></a>
+                                        </li>
+                                    </ul> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="absolute cat-ins"><span ng-bind="catIns"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-3 mg-bottom-20">
+                <div class="input-group">
+                    <span class="input-group-btn border-left-radius-4 font14 bg-ind-gray-light sp12">Price:</span>
+                    <input type="text" ng-model="query.priceFrom" placeholder="from" class="form-control" />
+                    <span class="input-group-addon no-left-border no-right-border bg-ind-gray-light">
+                    <span class="glyphicon glyphicon-menu-right"></span>
+                    </span>
+                    <input type="text" ng-model="query.priceTo" placeholder="to" class="form-control" />
+                    <span class="input-group-btn">
+                    <button class="btn btn-default bg-ind" type="button" ui-sref=".list({ priceFrom: query.priceFrom, priceTo: query.priceTo, page: undefined })">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" ui-view></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr style="margin: 16px 0" />
+        <div ng-bind-html="globalPG.onlineStoreDesc | trustAsHtml"></div>
+    </div>
+</div>

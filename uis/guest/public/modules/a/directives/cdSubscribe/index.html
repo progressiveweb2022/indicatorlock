@@ -1,0 +1,16 @@
+<div class="subscribe">
+    <div class="close transition-02s">
+        <button ng-click="close()"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+    <div class="form">
+        <h4>Subscribe to our newsletter!</h4>
+        <h6>Never miss an update. Receive periodic emails from us, and cancel at any time.</h6>
+        <form name="subscribe" ng-submit="save()">
+            <div class="form-group">
+                <input ng-model="model.email" ng-required="true" class="form-control" type="email" placeholder="Your Email" />
+                <div style="margin-top: 6px; overflow: hidden"></div>
+                <button class="form-control">Subscribe</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="scroll-upload" infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+    <div class="category-box" ng-repeat='item in reddit.items'>
+        <div class="row">
+            <div class="category-rp col-xs-12">
+                <div class="category-line">
+                    <div class="lines">
+                        <div class="title-box">
+                            <div class="top-line"></div>
+                            <div style="font-size: 22px;" class="title PatrickHand" ng-bind="item.name"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="product in products | filter:item.id" class="category-rp col-lg-3 col-md-4 col-sm-6 mg-bottom-20 text-center">
+                <a ui-sref="^.^.view({ product_id: product._id })" class="product transition-04s">
+                    <div class="product-box-list">
+                        <div class="img-box">
+                            <img alt ng-if="product.images[0]" ng-src="{{product.images[0]}}-540x540"></img>
+                            <img alt ng-if="!product.images[0]" src="./img/npp170x170.png"></img>
+                            <div class="discount" ng-if="product.discount">
+                                <span>-{{product.discountPercent + product.symbol}}</span>
+                            </div>
+                        </div>
+                        <div ng-class="product.status != 'In stock' ? 'on' : 'off'" class="status" ng-if="product.status">
+                            <img ng-src="./img/pixel.png" alt="{{product.status}}" />
+                        </div>
+                    </div>
+                    <div class="name">
+                        <span class="sp-color-1" ng-bind="product.name"></span>
+                    </div>
+                    <div class="price">
+                        <span class="sp-color-2" ng-bind="product.price"></span>
+                        <span class="sp-color-2" ng-bind="product.symbol"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-12">
+                <div ng-bind-html="item.description | trustAsHtml"></div>
+            </div>
+        </div>
+        <div class="scroll-down" ng-show='reddit.busy'></div>
+    </div>
+</div>

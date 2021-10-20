@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref=".product.list"> Indicatorlock </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="link in links" ui-sref-active="active">
+                    <a ui-sref-opts="{ reload: true }" ui-sref="{{link.state}}" ng-bind="link.caption"></a>
+                </li>
+                <li><a ng-click="logout()" href="">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" ui-view></div>
+<br />
+<div class="footer">
+    <div class="center"><a target="_blank" href="http://softor.ge" class="gray">CMS &copy 2015</a></div>
+</div>
+<div class="scrollup" cd-scroll-up><span class="glyphicon glyphicon-triangle-top icon"></span><span class="text">Go up</span></div>

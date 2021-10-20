@@ -1,0 +1,6 @@
+<div class="row">
+	<div class="col-md-3">
+	    <a ng-repeat="page in pages | orderBy: 'type'" ui-sref=".{{page.type}}" ui-sref-active="active" class="list-group-item" ng-bind="enums.getByValue('pagetype', page.type).caption.en"></a>
+	</div>
+	<div class="col-md-9" ui-view></div>
+</div>

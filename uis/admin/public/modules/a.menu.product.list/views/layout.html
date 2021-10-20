@@ -1,0 +1,45 @@
+<div>
+    <div>
+        <a ui-sref="^.modify"><span class="glyphicon glyphicon-plus"></span> Add New Product </a>
+        <div style="display: inline">
+            <span class="padding-left-30px"></span>
+            <input id="em-nt" ng-change="onChecked()" ng-model="setting.emailBulk" class="custom-checkbox" type="checkbox" /><span class="padding-left-5px"></span>
+            <label for="em-nt">Email notification</label>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th> Name </th>
+                <th> Price </th>
+                <th> Status </th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>
+                    <input ng-model="search.name" class="form-control" type="text" />
+                </td>
+                <td>
+                    <input ng-model="search.price" class="form-control" type="text" />
+                </td>
+                <td>
+                    <select ng-model="search.status" class="form-control">
+                        <option></option>
+                        <option>In stock</option>
+                        <option>Out of stock</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr ng-repeat="product in products | filter:search">
+                <td ng-bind="product.name"></td>
+                <td ng-bind="product.price"></td>
+                <td ng-bind="product.status"></td>
+                <td>
+                    <a class="edit" ui-sref="^.modify({ product_id: product._id })"><span class="glyphicon glyphicon-edit"></span> Edit </a> &nbsp;
+                    <a class="remove" href ng-click="removeRecord(product._id)"><span class="glyphicon glyphicon-remove"></span> Delete </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

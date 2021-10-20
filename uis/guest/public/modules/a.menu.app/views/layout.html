@@ -1,0 +1,59 @@
+<div class="app-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <h3> Application </h3>
+                <div class="app-box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 ng-bind-html="app.title | trustAsHtml"></h4>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img ng-if="app.img" src="{{app.img}}/460x460" alt />
+                                    <br /><br />
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12" ng-repeat="answer in app.answers">
+                                        <div class="row">
+                                            <h4 class="app-title col-sm-1 col-md-1" ng-bind="answer.number"></h4>
+                                            <div class="app-desc col-sm-11 col-md-11" ng-bind-html="answer.desc | trustAsHtml"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div ng-if="app.downtitle && app.subtexts" style="border-top: 2px solid gray; margin: 22px 0;"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12" ng-bind-html="app.downtitle | trustAsHtml"></div>
+                                <div ng-if="app.downtitle && app.subtexts" class="col-xs-12" style="border-top: 2px solid transparent; margin: 22px 0;"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" ng-repeat="subtext in app.subtexts">
+                                    <div class="row">
+                                        <h1 class="app-bot-number mg-up0 col-sm-1 col-md-1" ng-bind="subtext.number"></h1>
+                                        <h4 class="app-bot-title mg-up0 col-sm-11 col-md-11" ng-bind="subtext.title"></h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="app-bot-desc col-md-10 col-md-offset-1" ng-bind-html="subtext.desc | trustAsHtml"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <hr ng-if="$index + 1 !== app.subtexts.length" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+</div>
